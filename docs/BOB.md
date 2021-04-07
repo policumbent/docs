@@ -6,7 +6,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin
 
 ## Installazione
 
-Aenean rhoncus mauris at nibh rhoncus porttitor. Pellentesque ipsum orci, posuere at massa et, facilisis sagittis lorem. Aenean non varius libero. In ut tincidunt purus, et egestas nibh. In a elementum urna, ut pharetra ex. In porta vestibulum faucibus. Etiam ullamcorper congue tortor eget ultricies. Integer elit orci, ullamcorper ac ligula a, tristique aliquam est.
+1. Installare git `sudo apt install git`
+2. Scaricare BOB `git clone https://github.com/policumbent/BOB.git`
+3. Installare docker-compose `sudo apt install docker-compose`
+4. Installare portainer (facoltativo => per un più facile controllo dei container)
+   1. `sudo docker volume create portainer_data`
+   2. `sudo  docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
+5. Copiare i fle in comune `python3 copy_common.py`
+6. Buildare e avviare i container `sudo docker-compose up -d`
 
 ## Moduli
 
