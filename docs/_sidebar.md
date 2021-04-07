@@ -5,7 +5,5 @@
   - [BOB](BOB.md "The greatest software in the world")
 
 - Configurazione Hardware
-  - File primo avvio
-    - Connessione wifi
-    - SSH 
-  - Pinout
+  - [Configurazioni](configurations.md "Configurazioni Raspy")
+  - [Pinout](pinout.md "Pinout Raspy")
