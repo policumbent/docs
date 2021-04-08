@@ -51,7 +51,7 @@ The code assumes the MPU6050 to be connected to the address 0x68.
 To verify that this is true:
     i2cdetect -y 1
 
-### PIN MPU6050 (Sensor PIN -> GPIO Pi4)
+#### PIN MPU6050 (Sensor PIN -> GPIO Pi4)
 
  - VCC -> 3v3 power (PIN 1)
  - GND -> GND (PIN 9)
