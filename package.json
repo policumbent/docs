@@ -1,0 +1,14 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "description": "Documentation of all the projects",
+  "repository": "git@github.com:policumbent/docs.git",
+  "author": "Gabriele Belluardo <gabriele.belluardo@outlook.it>",
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "start": "docsify serve docs/"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.3"
+  }
+}

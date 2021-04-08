@@ -14,13 +14,15 @@
 6. `sudo apt install sakura`
 7. `/home/pi/.bash_profile`
 8. Incollare 
-```
+
+``` bash
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]
 then
   startx
 fi
 ```
-9. `sudo reboot` (`startx` per avviare senza riavviare)
+
+9. `sudo reboot` ( `startx` per avviare senza riavviare)
 
 Forse c'è da aggiungere
 
@@ -31,10 +33,10 @@ Forse c'è da aggiungere
 
 ## Impostazione risoluzione schermi
 
-```txt
-# uncomment to force a specific HDMI mode (here we are forcing 800x480!)
-hdmi_group=2
-hdmi_mode=87
-hdmi_cvt=800 480 60 6 0 0 0
-hdmi_drive=1
+``` txt
+# uncomment to force a specific HDMI mode(here we are forcing 800 x480!)
+hdmi_group = 2
+hdmi_mode = 87
+hdmi_cvt = 800 480 60 6 0 0 0
+hdmi_drive = 1
 ```

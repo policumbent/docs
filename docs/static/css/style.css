@@ -1,0 +1,8 @@
+nav.app-nav li ul {
+    min-width: 100px;
+}
+
+:root {
+    /* Change the theme color */
+    --theme-color: #42b983;
+}
