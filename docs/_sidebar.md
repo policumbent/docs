@@ -1,14 +1,18 @@
 * [Home](/)
-* [Guide](guide.md "The greatest guide in the world")
+* [Guide](guide.md)
 
-* Software
-  * [BOB](BOB.md "The greatest software in the world")
+**Software**
 
-* Configurazioni
-  * [Configurazioni Raspy](configurations.md "Configurazioni Raspy")
-  * [Pinout](pinout.md "Pinout Raspy")
-  * [Installazione OpenCv](opencv.md "Installazione OpenCv")
+* [BOB](software/BOB.md)
+* [ALICE](software/ALICE.md)
 
-* Hardware
-  * [Bike](bike.md "Elettronica bici")
-  * [Stazione meteo](weather_station.md "Stazione meteo")
+**Configurazioni**
+
+* [Configurazioni Raspy](configurations/raspberry.md "Configurazioni Raspy")
+* [Pinout](configurations/pinout.md "Pinout Raspy")
+* [Installazione OpenCv](configurations/opencv.md "Installazione OpenCv")
+
+**Hardware**
+
+* [Bike](hardware/bike.md "Elettronica bici")
+* [Stazione meteo](hardware/weather_station.md "Stazione meteo")
