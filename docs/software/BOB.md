@@ -120,7 +120,7 @@ Nel caso in cui si verifichi una determinata combinazione di tasti, entrambi i t
 
 #### Tipologia
 
-Il modulo GPIO è un sensore.
+Il modulo GPIO è un MqttRemote.
 
 #### Dipendenze
 
