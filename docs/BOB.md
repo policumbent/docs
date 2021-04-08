@@ -2,7 +2,47 @@
 
 ## Introduzione
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin nunc vitae tincidunt lobortis. Sed erat lorem, elementum sed dapibus eu, gravida a sapien. Fusce condimentum libero et auctor tempus. Nunc ut lobortis risus. Aenean aliquet ipsum non molestie molestie. Praesent fringilla nunc eget ipsum tincidunt elementum. Sed ultricies finibus sapien, vel consectetur est feugiat ut. Aliquam erat volutpat.
+BOB è il nuovo software per la gestione dell'elettronica della bici, ha una struttura modulare composta da:
+
+- MQTT broker
+- moduli
+
+### Server MQTT
+
+MQTT (MQ Telemetry Transport or Message Queue Telemetry Transport) è un protocollo ISO standard (ISO/IEC PRF 20922)[2] di messaggistica leggero di tipo publish-subscribe posizionato in cima a TCP/IP.
+Il broker è responsabile della distribuzione dei messaggi ai client destinatari. [Fonte](https://it.wikipedia.org/wiki/MQTT)
+
+### Funzionamento dei moduli
+
+I moduli hanno un main con queste caratteristiche in comune:
+
+- inizializzano un'instanza della classe `Mqtt` o una sua derivata
+- hanno un ciclo infinito in cui ad intervalli regolari o al verificarsi di eventi compie azioni
+- hanno una funzione `handle_message` per gestire i segnali in arrivo o i messaggi a cui il modulo è iscritto
+- estendono con una classe chiamata `Settings` la classe `CommonSettings`
+
+### Classe Mqtt
+
+La classe Mqtt è una classe che si occupa di effettuare il collegamento al Mqtt broker e implementa i seguenti metodi:
+
+- costruttore => Riceve come parametri l'ip del broker, la porta e il `nome del modulo`, l'oggetto di tipo `CommonSettings` del modulo che lo sta chiamando e un puntatore alla funzione del `message_handler`
+
+- on_connect => Metodo chiamato nel momento in cui avviene la connessione al broker, effettua la subscribe ai topic `new_settings`, `signals`, `sensors/manager`.
+
+- on_message => Metodo chiamato alla ricezione di un messaggio su un topic a cui si era effettuata l'iscrizione.
+  - nel caso in cui il topic sia `new_settings` vengono aggiornate  le impostazioni del modulo usando i metodi della classe `CommonSettings` e ripubblicate le impostazioni mandando anche il segnale `settings_updated`.
+  - in tutti gli altri casi inoltra il messaggio al `message_handler`
+
+La classe Mqtt viene estesa da:
+
+- MqttSensor
+- MqttConsumer
+- MqttMessage
+
+#### MqttSensor
+
+La classe MqttSensor viene usata nei moduli che **non devono ricevere dati da altri moduli**
+
 
 ## Installazione
 
@@ -15,9 +55,45 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin
 5. Copiare i fle in comune `python3 copy_common.py`
 6. Buildare e avviare i container `sudo docker-compose up -d`
 
-## Moduli
+## Elenco moduli
 
-Praesent maximus imperdiet elit non faucibus. Nullam eget feugiat orci. Curabitur vel maximus ipsum. Pellentesque pulvinar lacus neque, eu blandit nisi ornare eget. Curabitur ultricies, quam efficitur gravida ultricies, eros dui vestibulum dolor, sit amet egestas elit sem a tortor. Phasellus porta, augue et lacinia pretium, nisl nunc cursus dolor, eget facilisis odio ligula quis lectus. Donec tempus et mi id tempor. Vivamus sit amet dui sit amet nisi iaculis elementum. Pellentesque nisl lacus, aliquam eget ipsum volutpat, fermentum semper quam. Curabitur tempor dictum odio id ultrices. Duis tincidunt efficitur metus, non consequat ex volutpat quis. Curabitur semper nulla ac ipsum accumsan tempor. Proin maximus arcu ac bibendum imperdiet. Donec sed ultricies metus.
+### Gpio
+
+Il modulo GPIO si occupa della gestione degli interrupt provenienti dai tasti.
+Alla pressione dei tasti vengono pubblicati diversi messaggi:
+
+- `1` => Tasto up (pin 27) premuto
+- `-1` => Tasto down (pin 17) premuto
+
+Nel caso in cui si verifichi una determinata combinazione di tasti, entrambi i tasti premuti contemporanemente, verrà pubblicato il **segnale** `reset`.
+
+#### Tipologia
+
+Il modulo GPIO è un sensore.
+
+#### Dipendenze
+
+*Work in progress*
+
+#### Impostazioni
+
+Il modulo GPIO non richiede impostazioni particolari.
+
+#### Segnali inviati
+
+- `reset`
+
+#### Segnali ricevuti
+
+Il modulo GPIO non esegue azioni alla ricezione di nessun segnale.
+
+#### Notifiche
+
+Il modulo GPIO non manda notifiche.
+
+#### Messaggi a schermo
+
+Il modulo GPIO non manda messaggi a schermo.
 
 ### Gps
 
