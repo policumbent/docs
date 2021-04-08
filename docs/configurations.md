@@ -44,4 +44,9 @@ dtoverlay=uart5 # abilita la uart 5
 ![Pinout](./static/img/pinout.png)
 *In giallo sono marchiate le seriali*
 
-## Aumentare velocità accelerometro
+## Aumento del baudrate dell'accelerometro (per migliorare le prestazioni)
+
+Aggiungere la linea:
+   `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+nel file:
+   `boot/config.txt`
