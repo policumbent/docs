@@ -2,7 +2,32 @@
 
 ## Introduzione
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin nunc vitae tincidunt lobortis. Sed erat lorem, elementum sed dapibus eu, gravida a sapien. Fusce condimentum libero et auctor tempus. Nunc ut lobortis risus. Aenean aliquet ipsum non molestie molestie. Praesent fringilla nunc eget ipsum tincidunt elementum. Sed ultricies finibus sapien, vel consectetur est feugiat ut. Aliquam erat volutpat.
+BOB è il nuovo software per la gestione dell'elettronica della bici, ha una struttura modulare composta da:
+
+- MQTT broker
+- moduli
+
+### Server MQTT
+
+MQTT (MQ Telemetry Transport or Message Queue Telemetry Transport) è un protocollo ISO standard (ISO/IEC PRF 20922)[2] di messaggistica leggero di tipo publish-subscribe posizionato in cima a TCP/IP.
+[Fonte](https://it.wikipedia.org/wiki/MQTT). Il broker è responsabile della distribuzione dei messaggi ai client destinatari.
+
+### Funzionamento dei moduli
+
+I moduli hanno un main con queste caratteristiche in comune:
+
+- inizializzano un'instanza della classe `Mqtt` o una sua derivata
+- hanno un ciclo infinito in cui ad intervalli regolari o al verificarsi di eventi compie azioni
+- hanno una funzione `handle_message` per gestire i segnali in arrivo o i messagi a cui il modulo è iscritto
+
+
+BOB implementa vari moduli con una una struttura comune:
+
+- i moduli si connettono all'mqtt server e sono di 5 tipologie:
+  - sensori
+  - consumatori
+  - remote
+
 
 ## Installazione
 
@@ -15,9 +40,45 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin
 5. Copiare i fle in comune `python3 copy_common.py`
 6. Buildare e avviare i container `sudo docker-compose up -d`
 
-## Moduli
+## Elenco moduli
 
-Praesent maximus imperdiet elit non faucibus. Nullam eget feugiat orci. Curabitur vel maximus ipsum. Pellentesque pulvinar lacus neque, eu blandit nisi ornare eget. Curabitur ultricies, quam efficitur gravida ultricies, eros dui vestibulum dolor, sit amet egestas elit sem a tortor. Phasellus porta, augue et lacinia pretium, nisl nunc cursus dolor, eget facilisis odio ligula quis lectus. Donec tempus et mi id tempor. Vivamus sit amet dui sit amet nisi iaculis elementum. Pellentesque nisl lacus, aliquam eget ipsum volutpat, fermentum semper quam. Curabitur tempor dictum odio id ultrices. Duis tincidunt efficitur metus, non consequat ex volutpat quis. Curabitur semper nulla ac ipsum accumsan tempor. Proin maximus arcu ac bibendum imperdiet. Donec sed ultricies metus.
+### Gpio
+
+Il modulo GPIO si occupa della gestione degli interrupt provenienti dai tasti.
+Alla pressione dei tasti vengono pubblicati diversi messaggi:
+
+- `1` => Tasto up (pin 27) premuto
+- `-1` => Tasto down (pin 17) premuto
+
+Nel caso in cui si verifichi una determinata combinazione di tasti, entrambi i tasti premuti contemporanemente, verrà pubblicato il **segnale** `reset`.
+
+#### Tipologia
+
+Il modulo GPIO è un sensore.
+
+#### Dipendenze
+
+*Work in progress*
+
+#### Impostazioni
+
+Il modulo GPIO non richiede impostazioni particolari.
+
+#### Segnali inviati
+
+- `reset`
+
+#### Segnali ricevuti
+
+Il modulo GPIO non esegue azioni alla ricezione di nessun segnale.
+
+#### Notifiche
+
+Il modulo GPIO non manda notifiche.
+
+#### Messaggi a schermo
+
+Il modulo GPIO non manda messaggi a schermo.
 
 ### Gps
 
