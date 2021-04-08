@@ -20,29 +20,80 @@ I moduli hanno un main con queste caratteristiche in comune:
 - hanno un ciclo infinito in cui ad intervalli regolari o al verificarsi di eventi compie azioni
 - hanno una funzione `handle_message` per gestire i segnali in arrivo o i messaggi a cui il modulo è iscritto
 - estendono con una classe chiamata `Settings` la classe `CommonSettings`
+- i sensori di ogni modulo devono estendere la classe `Sensor`
 
 ### Classe Mqtt
 
 La classe Mqtt è una classe che si occupa di effettuare il collegamento al Mqtt broker e implementa i seguenti metodi:
 
-- costruttore => Riceve come parametri l'ip del broker, la porta e il `nome del modulo`, l'oggetto di tipo `CommonSettings` del modulo che lo sta chiamando e un puntatore alla funzione del `message_handler`
+- **costruttore** => Riceve come parametri l'ip del broker, la porta e il `nome del modulo`, l'oggetto di tipo `CommonSettings` del modulo che lo sta chiamando e un puntatore alla funzione del `message_handler`
 
-- on_connect => Metodo chiamato nel momento in cui avviene la connessione al broker, effettua la subscribe ai topic `new_settings`, `signals`, `sensors/manager`.
+- **on_connect** => Metodo chiamato nel momento in cui avviene la connessione al broker, effettua la subscribe ai topic `new_settings`, `signals`, `sensors/manager`.
 
-- on_message => Metodo chiamato alla ricezione di un messaggio su un topic a cui si era effettuata l'iscrizione.
+- **on_message** => Metodo chiamato alla ricezione di un messaggio su un topic a cui si era effettuata l'iscrizione.
   - nel caso in cui il topic sia `new_settings` vengono aggiornate  le impostazioni del modulo usando i metodi della classe `CommonSettings` e ripubblicate le impostazioni mandando anche il segnale `settings_updated`.
   - in tutti gli altri casi inoltra il messaggio al `message_handler`
+
+- **subscribe** => Non fa nulla, serve solo per effettuare l'override.
+
+- **publish** => Non fa nulla, serve solo per effettuare l'override.
+
+- **publish_message** =>  Pubblica i settings sul topic `settings/{nome_modulo}`.
+
+- **publish_settings** => Mostra un messaggio a schermo, pubblicando sul topic `messages/{nome_modulo}`.
+
+- **publish_alert** => Crea una notifica da mandare al server, pubblicano un messaggio su `alerts/{nome_modulo}`.
 
 La classe Mqtt viene estesa da:
 
 - MqttSensor
-- MqttConsumer
 - MqttMessage
 
 #### MqttSensor
 
-La classe MqttSensor viene usata nei moduli che **non devono ricevere dati da altri moduli**
+La classe MqttSensor estende Mqtt e viene usata nei moduli che **non devono ricevere dati da altri moduli** e pubblicare messaggi.
 
+La classe MqttSensor aggiunge i seguenti metodi:
+
+- **publish** => pubblica un messaggio con topic `sensors/{nome_modulo}`.
+
+La classe MqttSensor è a sua volta estesa da MqttConsumer.
+
+##### MqttConsumer
+
+La classe MqttConsumer estende MqttSensor e viene usata nei moduli che **devono ricevere dati da altri moduli** e pubblicare messaggi.
+
+La classe MqttConsumer aggiunge i seguenti metodi:
+
+- **costruttore** => aggiunge al costruttore ereditato il campo `topics` che contiene la lista dei moduli su cui ci si vuole mettere in ascolto.
+
+- **subscribe** => effettua l'override del metodo subscribe della classe Mqtt, il quale non effettuava nessuna azione, questo metodo viene chiamato dopo la connessione al broker ed effettua la subscrive all'elenco di moduli richiesti
+- **subscribe_messages** => Effettua la subscribe al topic message **(todo: non ho la più pallida idea di chi la chiami)**
+
+La classe MqttConsumer è a sua volta estesa dalla classe MqttRemote.
+
+###### MqttRemote
+
+La classe MqttConsumer estende MqttConsumer e viene usata nei moduli remoti che **devono modificare i settings o mandare i dati fuori dalla bici**.
+
+La classe MqttRemote aggiunge i seguenti metodi:
+
+- **subscribe** => effettua l'override chiamando la subscribe di MqttConsumer ed ed effettua la subscribe sui topic `settings/#` e `alerts/#` il cancelletto sta ad indicare che riceverà gli aggiornamenti ogni volta che verrà pubblicato un messaggio sui figli.
+
+- **publish_signal** => permette di pubblicare segnali.
+
+- **publish_new_settings** => permette di pubblicare le nuove impostazioni pubblicando sul topic `new_settings`, topic su cui tutti i moduli sono in ascolto.
+
+- **publish_data** => Invio un dato di un sensore remoto, per esempio se vogliamo pubblicare i dati della stazione meteo usiamo questo metodo, pubblica dati sul sensore `sensors/{nome_sensore_remoto}`.
+
+#### MqttMessage
+
+La classe MqttMessage estende Mqtt e viene **usata esclusivamente nel modulo che mostra i messaggi a schermo**.
+
+La classe MqttMessage aggiunge i seguenti metodi:
+
+- **publish** => pubblica un messaggio con topic `messages`.
+- **subscribe** => effettua la subscribe sul topic `messages/#` (il cancelletto sta ad indicare che riceverà gli aggiornamenti ogni volta che verrà pubblicato un messaggio sui figli).
 
 ## Installazione
 
@@ -53,7 +104,7 @@ La classe MqttSensor viene usata nei moduli che **non devono ricevere dati da al
    1. `sudo docker volume create portainer_data`
    2. `sudo  docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
 5. Copiare i fle in comune `python3 copy_common.py`
-6. Buildare e avviare i container `sudo docker-compose up -d`
+6. Buildare e avviare i container `sudo docker-compose up -d`-
 
 ## Elenco moduli
 
