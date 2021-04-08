@@ -1,7 +1,7 @@
 
 # Pinout
 
-<center>
+## Pinout Raspberry
 
 | Utilizzo | Funzioni | Nome pin | Numero Pin |    | Numero pin | Nome Pin | Funzioni | Utilizzo |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,6 +25,3 @@
 |     |     |     |  35 |     |  36 |     |     |     |
 |     |     |     |  37 |     |  38 |     |     |     |
 |     |     |     |  39 |     |  40 |     |     |     |
-
-
-</center>
