@@ -4,7 +4,11 @@
 * Software
   * [BOB](BOB.md "The greatest software in the world")
 
-* Configurazione
-  * [Configurazioni](configurations.md "Configurazioni Raspy")
+* Configurazioni
+  * [Configurazioni Raspy](configurations.md "Configurazioni Raspy")
   * [Pinout](pinout.md "Pinout Raspy")
   * [Installazione OpenCv](opencv.md "Installazione OpenCv")
+
+* Hardware
+  * [Bike](bike.md "Elettronica bici")
+  * [Stazione meteo](weather_station.md "Stazione meteo")
