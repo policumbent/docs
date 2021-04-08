@@ -1,6 +1,8 @@
-nav.app-nav li ul {
-    min-width: 100px;
+#docsify-darklight-theme{
+    margin-top: -0.5rem;
+    margin-right: 8vh;
 }
+
 
 :root {
     /* Change the theme color */
