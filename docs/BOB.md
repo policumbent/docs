@@ -31,27 +31,27 @@ Phasellus porta sit amet magna ut rhoncus. Fusce congue purus lacus, in facilisi
 
 Phasellus porta sit amet magna ut rhoncus. Fusce congue purus lacus, in facilisis enim posuere ut. Nulla fermentum leo mi, sit amet consequat metus placerat sit amet. Sed pellentesque in dui et pharetra. Donec non mauris at nulla viverra posuere eget id purus. Aliquam fringilla tincidunt ante eu congue. Aliquam erat volutpat. Donec id venenatis leo. Phasellus vitae consectetur nisi. Fusce dictum consectetur ex eget placerat.
 
-### Accelerometer MPU6050
+### Accelerometro MPU6050
 
-#### Dependencies
+#### Dipendenze
 
 https://github.com/Tijndagamer/mpu6050.git
 
-#### Sampling frequency increase (to improve performances)
+#### Aumento della frequenza di campionamento (per migliorare le prestazioni)
 
-Add the line:
-   dtparam=i2c_arm=on,i2c_arm_baudrate=400000
-in the file:
-   boot/config.txt
+Aggiungere la linea:
+   `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+nel file:
+   `boot/config.txt`
 
 
-#### Check of the 12c connection
+#### Controllare la connessione i2c
 
-The code assumes the MPU6050 to be connected to the address 0x68.
-To verify that this is true:
-    i2cdetect -y 1
+Il codice assume che il sensore sia connesso all'iindirizzo 0x68.
+Per verificare che ciò sia vero:
+    `i2cdetect -y 1`
 
-#### PIN MPU6050 (Sensor PIN -> GPIO Pi4)
+#### PIN MPU6050 (PIN sensore -> GPIO Pi4)
 
  - VCC -> 3v3 power (PIN 1)
  - GND -> GND (PIN 9)
