@@ -10,7 +10,7 @@ BOB è il nuovo software per la gestione dell'elettronica della bici, ha una str
 ### Server MQTT
 
 MQTT (MQ Telemetry Transport or Message Queue Telemetry Transport) è un protocollo ISO standard (ISO/IEC PRF 20922)[2] di messaggistica leggero di tipo publish-subscribe posizionato in cima a TCP/IP.
-[Fonte](https://it.wikipedia.org/wiki/MQTT). Il broker è responsabile della distribuzione dei messaggi ai client destinatari.
+Il broker è responsabile della distribuzione dei messaggi ai client destinatari. [Fonte](https://it.wikipedia.org/wiki/MQTT)
 
 ### Funzionamento dei moduli
 
@@ -18,15 +18,30 @@ I moduli hanno un main con queste caratteristiche in comune:
 
 - inizializzano un'instanza della classe `Mqtt` o una sua derivata
 - hanno un ciclo infinito in cui ad intervalli regolari o al verificarsi di eventi compie azioni
-- hanno una funzione `handle_message` per gestire i segnali in arrivo o i messagi a cui il modulo è iscritto
+- hanno una funzione `handle_message` per gestire i segnali in arrivo o i messaggi a cui il modulo è iscritto
+- estendono con una classe chiamata `Settings` la classe `CommonSettings`
 
+### Classe Mqtt
 
-BOB implementa vari moduli con una una struttura comune:
+La classe Mqtt è una classe che si occupa di effettuare il collegamento al Mqtt broker e implementa i seguenti metodi:
 
-- i moduli si connettono all'mqtt server e sono di 5 tipologie:
-  - sensori
-  - consumatori
-  - remote
+- costruttore => Riceve come parametri l'ip del broker, la porta e il `nome del modulo`, l'oggetto di tipo `CommonSettings` del modulo che lo sta chiamando e un puntatore alla funzione del `message_handler`
+
+- on_connect => Metodo chiamato nel momento in cui avviene la connessione al broker, effettua la subscribe ai topic `new_settings`, `signals`, `sensors/manager`.
+
+- on_message => Metodo chiamato alla ricezione di un messaggio su un topic a cui si era effettuata l'iscrizione.
+  - nel caso in cui il topic sia `new_settings` vengono aggiornate  le impostazioni del modulo usando i metodi della classe `CommonSettings` e ripubblicate le impostazioni mandando anche il segnale `settings_updated`.
+  - in tutti gli altri casi inoltra il messaggio al `message_handler`
+
+La classe Mqtt viene estesa da:
+
+- MqttSensor
+- MqttConsumer
+- MqttMessage
+
+#### MqttSensor
+
+La classe MqttSensor viene usata nei moduli che **non devono ricevere dati da altri moduli**
 
 
 ## Installazione
