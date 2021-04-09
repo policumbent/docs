@@ -146,6 +146,34 @@ Il modulo GPIO non manda notifiche.
 
 Il modulo GPIO non manda messaggi a schermo.
 
+### Csv
+
+Il modulo csv si occupa di loggare su un file csv i dati provenienti dai sensori selezionati. All'avvio il modulo si iscrive all'elenco dei dati che deve loggare e ogni x secondi scrive i dati su un file.
+
+#### Tipologia
+
+Il modulo csv è un consumatore.
+
+#### Dipendenze
+
+*Work in progress*
+
+#### Impostazioni
+
+- `csv_Save_interval` => ogni quanto i dati vengono salvati sul csv es. `1` (1s)
+
+#### Segnali ricevuti
+
+- `reset` => alla ricezione del segnale reset deve chiudere il file e aprirne uno nuovo
+
+#### Notifiche
+
+Il modulo csv non manda notifiche.
+
+#### Messaggi a schermo
+
+Il modulo csv non manda messaggi a schermo.
+
 ### Gps
 
 Nam condimentum aliquam neque at dignissim. Praesent suscipit massa a elit congue mollis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sed iaculis metus. Integer tempor augue nec porta feugiat. Nulla eleifend sed dui quis maximus. Sed rutrum fermentum orci at hendrerit. Sed suscipit tempor massa, eget pellentesque tellus sagittis a. Pellentesque dapibus gravida sem, sit amet cursus lacus eleifend ac. Nullam lobortis tristique nisl, id pulvinar libero molestie vitae. Donec porttitor ultricies dui, sed pretium libero fringilla et. Sed dictum blandit enim, vel euismod magna viverra at. Integer mi velit, iaculis ornare porta at, placerat vel nibh. Phasellus dictum, sem eget tempus ultricies, enim turpis dignissim ante, sit amet porta sapien tortor at ligula.
