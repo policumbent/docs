@@ -149,6 +149,7 @@ Il modulo GPIO non manda messaggi a schermo.
 ### Csv
 
 Il modulo csv si occupa di loggare su un file csv i dati provenienti dai sensori selezionati. All'avvio il modulo si iscrive all'elenco dei topic che deve loggare e ogni x secondi scrive i dati su un file.
+I file creati dal modulo hanno questo formato `{nome_bici}-{timestamp}.csv`.
 
 #### Tipologia
 
