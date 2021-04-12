@@ -5,6 +5,7 @@
 
 * [BOB](software/BOB.md)
 * [ALICE](software/ALICE.md)
+* [SOFIA](software/SOFIA.md)
 
 **Configurazioni**
 
