@@ -31,22 +31,25 @@ dtoverlay=uart4 # abilita la uart 4
 dtoverlay=uart5 # abilita la uart 5
 ```
 
-| Numero UART | Pin TX | Pin RX | Nome seriale |
-| --- | --- | --- | --- |
-| 1 | 8 | 10 | `/dev/ttyS0` o `/dev/ttyAMA0` |
-| 2 | 27 | 28 | `/dev/ttyAMA1` |
-| 3 | ? | 29 | `/dev/ttyAMA3` da testare |
-| 4 | 24 | 21 | `/dev/ttyAMA4` |
-| 5 | 32 | 33 | `/dev/ttyAMA5` |
+| Numero UART | Pin TX | Pin RX | Nome seriale                  |
+| ----------- | ------ | ------ | ----------------------------- |
+| 1           | 8      | 10     | `/dev/ttyS0` o `/dev/ttyAMA0` |
+| 2           | 27     | 28     | `/dev/ttyAMA1`                |
+| 3           | ?      | 29     | `/dev/ttyAMA3` da testare     |
+| 4           | 24     | 21     | `/dev/ttyAMA4`                |
+| 5           | 32     | 33     | `/dev/ttyAMA5`                |
 
 [Per maggiori info](https://www.raspberrypi.org/forums/viewtopic.php?f=44&t=246728&hilit=serial#p1506953)
 
-![Pinout](./static/img/pinout.png)
-*In giallo sono marchiate le seriali*
+![Pinout](../static/img/pinout.png)
+_In giallo sono marchiate le seriali_
 
 ## Aumento del baudrate dell'accelerometro (per migliorare le prestazioni)
 
 Aggiungere la linea:
-   `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+
+`dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+
 nel file:
-   `boot/config.txt`
+
+`boot/config.txt`
