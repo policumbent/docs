@@ -103,3 +103,23 @@
 }
 
 ```
+
+## Tool di sviluppo
+
+### Live reloading
+
+Per abilitare il live reloading dell'app:
+
+1. Avviare il webserver con il live reloading`vue-cli-service serve`
+
+2. `ionic capacitor run android --livereload-url=http://{ip_pc}:8080/`
+
+3. Avviare l'app da android.
+
+### Build app
+
+1. `ionic build`
+2. `npx cap sync`
+3. `ionic capacitor run android`
+
+Se non funziona cancellare le opzioni del server dal file `capacitor.config.json`.
