@@ -39,3 +39,47 @@
 }
 ```
 *pacchetto tipo 1*
+
+```js
+{
+    "settings/gpio": {},
+    "settings/manager": {
+        "max_temp": 70,
+        "autopause": false,
+        "bike": "taurusx",
+        "autopause_on_gps": false
+    },
+    "settings/gps": {
+        "latitude_timing_start": 45.032888,
+        "longitude_timing_start": 7.792347,
+        "latitude_timing_end": 45.032888,
+        "longitude_timing_end": 7.792347
+    },
+    "settings/messages": {
+        "trap_priority": 2
+    },
+    "settings/http_service": {
+        "server_ip": "poliserver.duckdns.org",
+        "cert": "./cert.crt",
+        "server_port": 9002,
+        "protocol": "https",
+        "username": "admin",
+        "password": "admin"
+    },
+    "settings/ant": {
+        "hour_record": false,
+        "run_length": 8046,
+        "trap_length": 200,
+        "hr_sensor_id": 0,
+        "speed_sensor_id": 0,
+        "power_sensor_id": 0,
+        "circumference": 1450,
+        "average_power_time": 3
+    },
+    "settings/accelerometer": {
+        "accelerometer_local_csv": false
+    },
+    "settings/bt": {}
+}
+```
+Esempio delle impostazioni che servono
