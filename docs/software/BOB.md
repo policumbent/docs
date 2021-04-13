@@ -31,14 +31,15 @@ La classe Mqtt è una classe che si occupa di effettuare il collegamento al Mqtt
 - **on_connect** => Metodo chiamato nel momento in cui avviene la connessione al broker, effettua la subscribe ai topic `new_settings`, `signals`, `sensors/manager`.
 
 - **on_message** => Metodo chiamato alla ricezione di un messaggio su un topic a cui si era effettuata l'iscrizione.
-  - nel caso in cui il topic sia `new_settings` vengono aggiornate  le impostazioni del modulo usando i metodi della classe `CommonSettings` e ripubblicate le impostazioni mandando anche il segnale `settings_updated`.
+
+  - nel caso in cui il topic sia `new_settings` vengono aggiornate le impostazioni del modulo usando i metodi della classe `CommonSettings` e ripubblicate le impostazioni mandando anche il segnale `settings_updated`.
   - in tutti gli altri casi inoltra il messaggio al `message_handler`
 
 - **subscribe** => Non fa nulla, serve solo per effettuare l'override.
 
 - **publish** => Non fa nulla, serve solo per effettuare l'override.
 
-- **publish_message** =>  Pubblica i settings sul topic `settings/{nome_modulo}`.
+- **publish_message** => Pubblica i settings sul topic `settings/{nome_modulo}`.
 
 - **publish_settings** => Mostra un messaggio a schermo, pubblicando sul topic `messages/{nome_modulo}`.
 
@@ -102,7 +103,7 @@ La classe MqttMessage aggiunge i seguenti metodi:
 3. Installare docker-compose `sudo apt install docker-compose`
 4. Installare portainer (facoltativo => per un più facile controllo dei container)
    1. `sudo docker volume create portainer_data`
-   2. `sudo  docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
+   2. `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
 5. Copiare i fle in comune `python3 copy_common.py`
 6. Buildare e avviare i container `sudo docker-compose up -d`-
 
@@ -124,7 +125,7 @@ Il modulo GPIO è un MqttRemote.
 
 #### Dipendenze
 
-*Work in progress*
+_Work in progress_
 
 #### Impostazioni
 
@@ -157,7 +158,7 @@ Il modulo csv è un consumatore.
 
 #### Dipendenze
 
-*Work in progress*
+_Work in progress_
 
 #### Impostazioni
 
@@ -196,20 +197,19 @@ https://github.com/Tijndagamer/mpu6050.git
 #### Aumento della frequenza di campionamento (per migliorare le prestazioni)
 
 Aggiungere la linea:
-   `dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
+`dtparam=i2c_arm=on,i2c_arm_baudrate=400000`
 nel file:
-   `boot/config.txt`
-
+`boot/config.txt`
 
 #### Controllare la connessione i2c
 
 Il codice assume che il sensore sia connesso all'iindirizzo 0x68.
 Per verificare che ciò sia vero:
-    `i2cdetect -y 1`
+`i2cdetect -y 1`
 
 #### PIN MPU6050 (PIN sensore -> GPIO Pi4)
 
- - VCC -> 3v3 power (PIN 1)
- - GND -> GND (PIN 9)
- - SCL -> GPIO3 (PIN 5)
- - SDA -> GPIO2 (PIN 3)
+- VCC -> 3v3 power (PIN 1)
+- GND -> GND (PIN 9)
+- SCL -> GPIO3 (PIN 5)
+- SDA -> GPIO2 (PIN 3)

@@ -6,9 +6,11 @@
   "author": "Gabriele Belluardo <gabriele.belluardo@outlook.it>",
   "license": "CC-BY-4.0",
   "scripts": {
-    "start": "docsify serve docs/"
+    "start": "docsify serve docs/",
+    "format": "prettier --write \"**/*.{md,html}\""
   },
   "devDependencies": {
-    "docsify-cli": "^4.4.3"
+    "docsify-cli": "^4.4.3",
+    "prettier": "^2.2.1"
   }
 }
