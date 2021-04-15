@@ -1,6 +1,3 @@
-- [Home](/)
-- [Guide](guide.md)
-
 **Software**
 
 - [ALICE](software/ALICE.md)
