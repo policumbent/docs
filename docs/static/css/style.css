@@ -4,7 +4,7 @@
 }
 
 /* Single line markdown code */
-.markdown-section code:not([class*="lang-"]):not([class*="language-"]){
+.markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
     white-space: normal !important;
 }
 
@@ -12,4 +12,8 @@
 #docsify-darklight-theme {
     margin-top: -0.5rem;
     margin-right: 8vh;
+}
+
+.note a {
+    text-decoration: none !important;
 }
