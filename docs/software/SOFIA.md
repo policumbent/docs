@@ -9,8 +9,8 @@
 1. BICI => APP
 
    - all'apertura: manda il _pacchetto 2_.
-   - ogni volta che i settings vengono aggiornati: manda il _pacchetto 2_ a tutti i client connessi.
-   - ogni volta che viene ricevuto un segnale: manda il _pacchetto 3_ a tutti i client connessi.
+   - ogni volta che i settings vengono aggiornati: manda il _pacchetto 2_ a tutti i client connessi e manda il nonce corrente (Non accetterà pacchetti con nonce diverso da quello inviato più uno).
+   - ogni volta che viene ricevuto un segnale: manda il _pacchetto 2_ a tutti i client connessi.
 
 1. APP => BICI
 
@@ -52,56 +52,70 @@
 
 ```json
 {
-  "settings": {
-    "settings/gpio": {},
-    "settings/manager": {
-      "max_temp": 70,
-      "autopause": false,
-      "bike": "taurusx",
-      "autopause_on_gps": false
-    },
-    "settings/gps": {
-      "latitude_timing_start": 45.032888,
-      "longitude_timing_start": 7.792347,
-      "latitude_timing_end": 45.032888,
-      "longitude_timing_end": 7.792347
-    },
-    "settings/messages": {
-      "trap_priority": 2
-    },
-    "settings/http_service": {
-      "server_ip": "poliserver.duckdns.org",
-      "cert": "./cert.crt",
-      "server_port": 9002,
-      "protocol": "https",
-      "username": "admin",
-      "password": "admin"
-    },
-    "settings/ant": {
-      "hour_record": false,
-      "run_length": 8046,
-      "trap_length": 200,
-      "hr_sensor_id": 0,
-      "speed_sensor_id": 0,
-      "power_sensor_id": 0,
-      "circumference": 1450,
-      "average_power_time": 3
-    },
-    "settings/accelerometer": {
-      "accelerometer_local_csv": false
-    },
-    "settings/bt": {}
-  },
-  "incremental_number": 1
+  "type": "value", # valore ammesso settings/signal
+  "incremental_number": "nonce", # intero compreso tra 0 e 2^32
+  "data": "payload" # dizionario dei settings o stringa con il segnale
 }
 ```
 
-(_pacchetto tipo 3_)
+(_pacchetto tipo 2 => esempio settings_)
 
 ```json
 {
-  "signal": "reset",
-  "incremental_number": 1
+  "type": "settings",
+  "incremental_number": 1,
+  "data": {
+    "settings": {
+      "settings/gpio": {},
+      "settings/manager": {
+        "max_temp": 70,
+        "autopause": false,
+        "bike": "taurusx",
+        "autopause_on_gps": false
+      },
+      "settings/gps": {
+        "latitude_timing_start": 45.032888,
+        "longitude_timing_start": 7.792347,
+        "latitude_timing_end": 45.032888,
+        "longitude_timing_end": 7.792347
+      },
+      "settings/messages": {
+        "trap_priority": 2
+      },
+      "settings/http_service": {
+        "server_ip": "poliserver.duckdns.org",
+        "cert": "./cert.crt",
+        "server_port": 9002,
+        "protocol": "https",
+        "username": "admin",
+        "password": "admin"
+      },
+      "settings/ant": {
+        "hour_record": false,
+        "run_length": 8046,
+        "trap_length": 200,
+        "hr_sensor_id": 0,
+        "speed_sensor_id": 0,
+        "power_sensor_id": 0,
+        "circumference": 1450,
+        "average_power_time": 3
+      },
+      "settings/accelerometer": {
+        "accelerometer_local_csv": false
+      },
+      "settings/bt": {}
+    }
+  }
+}
+```
+
+(_pacchetto tipo 2 => esempio signal_)
+
+```json
+{
+  "type": "signal",
+  "incremental_number": 1,
+  "data": "reset"
 }
 ```
 
