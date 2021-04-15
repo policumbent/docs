@@ -3,7 +3,7 @@
 ## Introduzione
 
 Alice<sup class="note">[1](#note1)</sup> è la dashboard [SPA] per la telemetria della bici, usata sia nei test in pista che durante la competizione a Battle Montain.  
-All'indirizzo [alice.policumbent.it](alice.policumbent.it) è accessibile liberamente anche da chi ci segue sui social.
+All'indirizzo [alice.policumbent.it](https://alice.policumbent.it) è accessibile liberamente anche da chi ci segue sui social.
 
 ## Frontend
 
