@@ -27,14 +27,14 @@ Il progetto è visibile su [github] ed ha la seguente struttura:
     ├── assets
     ├── components
     │   ├── notifications.tsx
-    │   └── footer.tsx
+    │   ├── footer.tsx
+    │   └── utils.ts
     ├── containers
     │   └── DefaultLayout
     ├── index.jsx
     ├── routes.js
     ├── service-worker.js
     ├── serviceWorkerRegister.js
-    ├── utils.ts
     └── views
         ├── Credits
         ├── Dashboard
@@ -47,10 +47,10 @@ Il progetto è visibile su [github] ed ha la seguente struttura:
 - `App.jsx` è il component principale di default che viene renderizzato dall'`index.jsx`
 - in `App.scss` contiene tutto il css custom che non è facilmente implementabile con [reactstrap]
 - in `components` risiedono tutti i component che implementano le funzionalità principali
+- in `utils.ts` ci sono le funzioni base, comuni a tutti i component
 - `DefaultLayout` è il component di root della vista che instanzia la <u>topbar</u> e il <u>footer</u>
 - `routes.js` definisce le route dell'applicazione, ogni vista è renderizzata come una diversa route
 - in `views` sono definite le viste, divise in diversi package javascript
-- in `utils.ts` ci sono le funzioni base, comuni a tutti i component
 
 Le funzionalità [PWA] di React sono implementate in `service-worker.js` e `serviceWorkerRegister.js` e la configurazione in `manifest.json`.
 
