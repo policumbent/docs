@@ -21,7 +21,7 @@ Il progetto è visibile su [github] ed ha la seguente struttura:
 └── src
     ├── ...
     ├── api.ts
-    ├── App.jsx
+    ├── App.tsx
     ├── App.scss
     ├── App.test.js
     ├── assets
@@ -31,7 +31,7 @@ Il progetto è visibile su [github] ed ha la seguente struttura:
     │   └── utils.ts
     ├── containers
     │   └── DefaultLayout
-    ├── index.jsx
+    ├── index.tsx
     ├── routes.js
     ├── service-worker.js
     ├── serviceWorkerRegister.js
