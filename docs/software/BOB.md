@@ -176,6 +176,15 @@ Il modulo csv non manda notifiche.
 
 Il modulo csv non manda messaggi a schermo.
 
+### Bluetooth
+
+#### Dipendenze (senza docker)
+
+1. `sudo apt update`
+2. `sudo apt-get install bluetooth bluez libbluetooth-dev`
+3. `sudo python3 -m pip install pybluez`
+4. Modificare la riga `ExecStart=/usr/lib/bluetooth/bluetoothd` in `ExecStart=/usr/lib/bluetooth/bluetoothd --compat` nel file `/etc/systemd/system/dbus-org.bluez.service`.
+
 ### Gps
 
 Nam condimentum aliquam neque at dignissim. Praesent suscipit massa a elit congue mollis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sed iaculis metus. Integer tempor augue nec porta feugiat. Nulla eleifend sed dui quis maximus. Sed rutrum fermentum orci at hendrerit. Sed suscipit tempor massa, eget pellentesque tellus sagittis a. Pellentesque dapibus gravida sem, sit amet cursus lacus eleifend ac. Nullam lobortis tristique nisl, id pulvinar libero molestie vitae. Donec porttitor ultricies dui, sed pretium libero fringilla et. Sed dictum blandit enim, vel euismod magna viverra at. Integer mi velit, iaculis ornare porta at, placerat vel nibh. Phasellus dictum, sem eget tempus ultricies, enim turpis dignissim ante, sit amet porta sapien tortor at ligula.
