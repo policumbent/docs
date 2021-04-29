@@ -3,6 +3,7 @@
 - [ALICE](software/ALICE.md)
 - [BOB](software/BOB.md)
 - [SOFIA](software/SOFIA.md)
+- [SERVER](software/SERVER.md)
 
 **Configurazioni**
 
