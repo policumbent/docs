@@ -27,6 +27,8 @@
     4.  Aggiungere il repository stabile `echo "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
     5.  `sudo apt update`
     6.  Installare il Docker Engine `sudo apt-get install docker-ce docker-ce-cli containerd.io`
+    7.  `sudo apt install python3-pip`
+    8. `sudo pip3 install docker-compose`
 11. Installare Portainer per la gestione dei containers (opzionale)
     1.  `sudo docker volume create portainer_data`
     2.  `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
