@@ -21,12 +21,12 @@
    3. . Salvare il file e ricaricare il servizio ssh `sudo systemctl reload ssh`.
    4. Aggiungere le chiavi pubbliche nel file `~/.ssh/authorized_keys`, per ricavare le chiavi pubbliche puoi andare da github `https://github.com/{nome_utente_github}.keys`.
 10. Installare docker e docker-compose
-11. `sudo apt update`
-12. . `sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release`.
-13. Aggiungere la GPG key di Docker `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
-14. Aggiungere il repository stabile `echo "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
-15. `sudo apt update`
-16. Installare il Docker Engine `sudo apt-get install docker-ce docker-ce-cli containerd.io`
-17. Installare Portainer per la gestione dei containers (opzionale)
-18. `sudo docker volume create portainer_data`
-19. `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
+    1. `sudo apt update`
+    2. . `sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release`.
+    3. Aggiungere la GPG key di Docker `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
+    4. Aggiungere il repository stabile `echo "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+    5. `sudo apt update`
+    6. Installare il Docker Engine `sudo apt-get install docker-ce docker-ce-cli containerd.io`
+11. Installare Portainer per la gestione dei containers (opzionale)
+    1. `sudo docker volume create portainer_data`
+    2. `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
