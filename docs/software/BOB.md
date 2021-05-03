@@ -153,7 +153,7 @@ Secondo sensore hall sulla bici che si occupa di misurarne la distanza e la velo
 
 #### Tipologia
 
-Il modulo GPIO è un MqttRemote.
+Il modulo GPIO è un MqttSensor.
 
 #### Dipendenze
 
