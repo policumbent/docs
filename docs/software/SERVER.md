@@ -32,3 +32,18 @@
 11. Installare Portainer per la gestione dei containers (opzionale)
     1.  `sudo docker volume create portainer_data`
     2.  `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
+
+## MQTT
+
+```docker-compose.yml
+version: "3"
+
+services:
+   mqtt-policumbent:
+      image: eclipse-mosquitto:1.6
+      volumes:
+         - ./conf:/etc/mosquitto
+      ports:
+         - 1883:1883
+      restart: unless-stopped
+```

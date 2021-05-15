@@ -98,14 +98,43 @@ La classe MqttMessage aggiunge i seguenti metodi:
 
 ## Installazione
 
-1. Installare git `sudo apt install git`
+### Installazione automatica
+
+1. Scaricare e installare `Raspberry Pi OS Lite 32bit`
 2. Scaricare BOB `git clone https://github.com/policumbent/BOB.git`
-3. Installare docker-compose `sudo apt install docker-compose`
-4. Installare portainer (facoltativo => per un più facile controllo dei container)
+3. Avviare l'installazione `bash install.sh`
+
+### Installazione manuale
+
+1. Scaricare e installare `Raspberry Pi OS Lite 32bit`
+2. Installare Docker
+   1. `sudo apt update`
+   2. `sudo apt install apt-transport-https ca-certificates  curl gnupg lsb-release -y`
+   3. Aggiungere la chiave GPG ufficiale di Docker `curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`
+   4. Aggiungo il repository `echo "deb [arch=armhf signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`
+   5. `sudo apt update`
+   6. `sudo apt install docker-ce docker-ce-cli containerd.io -y`
+   7. docker-compose `sudo apt install docker-compose -y`
+3. Installare portainer (facoltativo => per un più facile controllo dei container)
    1. `sudo docker volume create portainer_data`
    2. `sudo docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce`
-5. Copiare i fle in comune `python3 copy_common.py`
-6. Buildare e avviare i container `sudo docker-compose up -d`-
+   3. Impostare la password a `http://[ip_raspy]:9000`
+4. Installare BOB
+   1. Installare git `sudo apt install git -y`
+   2. Scaricare BOB `git clone https://github.com/policumbent/BOB.git`
+   3. Andare nella cartella di BOB `cd BOB`
+   4. Copiare i fle in comune `python3 copy_common.py`
+   5. Buildare i container `sudo docker-compose build`
+   6. Installare le dipendenze per il bluetooth => [vedi qui](https://docs.policumbent.it/#/software/BOB?id=dipendenze-senza-docker)
+   7. Aggiungere il servizio d'avvio `sudo cp BOB.service /etc/systemd/system/`
+   8. `sudo systemctl enable BOB.service`
+   9. `sudo systemctl start BOB.service`
+5. Installare splash screen
+   1. `sudo apt install fbi -y`
+   2. `sudo cp splashscreen.service /etc/systemd/system/`
+   3. `sudo systemctl enable splashscreen.service`
+   4. `sudo systemctl start splashscreen.service`
+   5. Controllare lo stato `sudo systemctl status splashscreen.service`
 
 ## Elenco moduli
 
