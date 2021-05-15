@@ -124,11 +124,12 @@ La classe MqttMessage aggiunge i seguenti metodi:
    2. Scaricare BOB `git clone https://github.com/policumbent/BOB.git`
    3. Andare nella cartella di BOB `cd BOB`
    4. Copiare i fle in comune `python3 copy_common.py`
-   5. Buildare i container `sudo docker-compose build`
-   6. Installare le dipendenze per il bluetooth => [vedi qui](https://docs.policumbent.it/#/software/BOB?id=dipendenze-senza-docker)
-   7. Aggiungere il servizio d'avvio `sudo cp BOB.service /etc/systemd/system/`
-   8. `sudo systemctl enable BOB.service`
-   9. `sudo systemctl start BOB.service`
+   5. Rendere lo script di start eseguibile `sudo chmod +x start.sh`
+   6. Buildare i container `sudo docker-compose build`
+   7. Installare le dipendenze per il bluetooth => [vedi qui](https://docs.policumbent.it/#/software/BOB?id=dipendenze-senza-docker)
+   8. Aggiungere il servizio d'avvio `sudo cp BOB.service /etc/systemd/system/`
+   9. `sudo systemctl enable BOB.service`
+   10. `sudo systemctl start BOB.service`
 5. Installare splash screen
    1. `sudo apt install fbi -y`
    2. `sudo cp splashscreen.service /etc/systemd/system/`
