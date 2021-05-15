@@ -176,6 +176,36 @@ Il modulo GPIO non manda notifiche.
 
 Il modulo GPIO non manda messaggi a schermo.
 
+### Hall sensor
+
+Secondo sensore hall sulla bici che si occupa di misurarne la distanza e la velocità tramite l'utilizzo di un magnete presente sula ruota.
+
+#### Tipologia
+
+Il modulo GPIO è un MqttSensor.
+
+#### Dipendenze
+
+- paho-mqtt
+- RPi.GPIO
+
+#### Impostazioni
+
+- pin (default 24) ==> pin signal hall sensor
+- circunference (default 1450) ==> cinrconferenza in millimetri della ruota
+
+#### Segnali ricevuti
+
+- `reset` ==> resetta la distanza percorsa
+
+#### Notifiche
+
+Il sensore hall non manda notifiche.
+
+#### Messaggi a schermo
+
+Il sensore hall non manda messaggi a schermo.
+
 ### Csv
 
 Il modulo csv si occupa di loggare su un file csv i dati provenienti dai sensori selezionati. All'avvio il modulo si iscrive all'elenco dei topic che deve loggare e ogni x secondi scrive i dati su un file.
