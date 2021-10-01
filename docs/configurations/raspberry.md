@@ -35,7 +35,7 @@ dtoverlay=uart5 # abilita la uart 5
 | ----------- | ------ | ------ | ----------------------------- |
 | 1           | 8      | 10     | `/dev/ttyS0` o `/dev/ttyAMA0` |
 | 2           | 27     | 28     | `/dev/ttyAMA1`                |
-| 3           | ?      | 29     | `/dev/ttyAMA2` da testare     |
+| 3           | 7      | 29     | `/dev/ttyAMA2`                |
 | 4           | 24     | 21     | `/dev/ttyAMA3`                |
 | 5           | 32     | 33     | `/dev/ttyAMA4`                |
 
