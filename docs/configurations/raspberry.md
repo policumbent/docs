@@ -35,9 +35,9 @@ dtoverlay=uart5 # abilita la uart 5
 | ----------- | ------ | ------ | ----------------------------- |
 | 1           | 8      | 10     | `/dev/ttyS0` o `/dev/ttyAMA0` |
 | 2           | 27     | 28     | `/dev/ttyAMA1`                |
-| 3           | ?      | 29     | `/dev/ttyAMA3` da testare     |
-| 4           | 24     | 21     | `/dev/ttyAMA4`                |
-| 5           | 32     | 33     | `/dev/ttyAMA5`                |
+| 3           | ?      | 29     | `/dev/ttyAMA2` da testare     |
+| 4           | 24     | 21     | `/dev/ttyAMA3`                |
+| 5           | 32     | 33     | `/dev/ttyAMA4`                |
 
 [Per maggiori info](https://www.raspberrypi.org/forums/viewtopic.php?f=44&t=246728&hilit=serial#p1506953)
 
