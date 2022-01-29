@@ -1,4 +1,6 @@
-# Installazione OpenCV
+# Installazione Desktop per OpenCV e WHPSC Sim
+
+## Installazione OpenCV
 
 1. Abilitare la camera da `sudo raspi-config`
 2. `sudo apt install python3-pip python3-picamera libatlas-base-dev libopenjp2-7 libilmbase-dev libopenexr-dev libgstreamer1.0-dev libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libdc1394-22-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev -y`
@@ -8,8 +10,8 @@
 
 1. `sudo apt update`
 2. `sudo apt install jwm x11-apps`
-3. `wget https://www.policumbent.it/config_files/.jwmrc`
-4. `wget -O splash.png https://raw.githubusercontent.com/policumbent/Policumbent-ant-schermi/master/utils/splash.png?token=AKTACIFYJVF4JVFSCRZNTSDABQHVO`
+3. `wget --no-check-certificate https://config.policumbent.it/.jwmrc`
+4. `wget --no-check-certificate https://config.policumbent.it/splash.png`
 5. `sudo apt install xorg`
 6. `sudo apt install sakura`
 7. `/home/pi/.bash_profile`
