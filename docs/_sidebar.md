@@ -1,21 +1,29 @@
-**Software**
+**Raspberry Pi / Bob**
 
-- [ALICE](software/ALICE.md)
-- [BOB](software/BOB.md)
-- [SOFIA](software/SOFIA.md)
-- [SERVER](software/SERVER.md)
+- [Raspberry Pi and Bob setup](rpi/rpi_config.md)
 
-**Configurazioni**
+**Cambio**
 
-- [Configurazioni Raspy](configurations/raspberry.md "Configurazioni Raspy")
-- [Installazione OpenCv](configurations/opencv.md "Installazione OpenCv")
-- [Pinout](configurations/pinout.md "Pinout Raspy")
+**dumBMS**
 
-**Hardware**
+**GNSS**
 
-- [Bike](hardware/bike.md "Elettronica bici")
-- [Stazione meteo](hardware/weather_station.md "Stazione meteo")
+**Cablaggi**
 
 **Debug tools**
 
 - [Raspberry Pi](debug-tools/raspberry_pi.md "Raspberry Pi")
+
+**Legacy**
+
+- [SW - ALICE](legacy/software/ALICE.md)
+- [SW - BOB](legacy/software/BOB.md)
+- [SW - SOFIA](legacy/software/SOFIA.md)
+- [SW - SERVER](legacy/software/SERVER.md)
+
+- [HW - Bike](legacy/hardware/bike.md "Elettronica bici")
+- [HW - Stazione meteo](legacy/hardware/weather_station.md "Stazione meteo")
+
+- [Configurazioni Raspy](legacy/configurations/raspberry.md "Configurazioni Raspy")
+- [Installazione OpenCv](legacy/configurations/opencv.md "Installazione OpenCv")
+- [Pinout](legacy/configurations/pinout.md "Pinout Raspy")

@@ -41,7 +41,7 @@ dtoverlay=uart5 # abilita la uart 5
 
 [Per maggiori info](https://www.raspberrypi.org/forums/viewtopic.php?f=44&t=246728&hilit=serial#p1506953)
 
-![Pinout](../static/img/pinout.png)
+![Pinout](../../static/img/pinout.png)
 _In giallo sono marchiate le seriali_
 
 ## Aumento del baudrate dell'accelerometro (per migliorare le prestazioni)
