@@ -15,3 +15,7 @@
 
 - [Bike](hardware/bike.md "Elettronica bici")
 - [Stazione meteo](hardware/weather_station.md "Stazione meteo")
+
+**Debug tools**
+
+- [Raspberry Pi](debug-tools/raspberry_pi.md "Raspberry Pi")
