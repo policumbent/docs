@@ -1,4 +1,4 @@
 # Legacy - Hardware documentation
 
-- [Bike](./bike.md "Elettronica bici")
-- [Stazione meteo](./weather_station.md "Stazione meteo")
+- [Bike](docs/legacy/hardware/bike.md "Elettronica bici")
+- [Stazione meteo](docs/legacy/hardware/weather_station.md "Stazione meteo")

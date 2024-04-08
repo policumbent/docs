@@ -1,5 +1,5 @@
 # Legacy - Configurations documentation
 
-- [Configurazioni Raspy](./raspberry.md "Configurazioni Raspy")
-- [Installazione OpenCv](./opencv.md "Installazione OpenCv")
-- [Pinout](./pinout.md "Pinout Raspy")
+- [Configurazioni Raspy](docs/legacy/configurations/raspberry.md "Configurazioni Raspy")
+- [Installazione OpenCv](docs/legacy/configurations/opencv.md "Installazione OpenCv")
+- [Pinout](docs/legacy/configurations/pinout.md "Pinout Raspy")
