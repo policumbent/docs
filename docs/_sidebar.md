@@ -2,13 +2,15 @@
 
 - [Raspberry Pi and Bob setup](rpi/rpi_config.md)
 
-**Cambio**
+**Gearbox**
+
+- [Camilla - CAMbio Intrinsicamente LAborioso](gearbox/camilla.md)
 
 **dumBMS**
 
 **GNSS**
 
-**Cablaggi**
+**Wiring**
 
 **Debug tools**
 
