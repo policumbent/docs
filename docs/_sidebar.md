@@ -4,7 +4,7 @@
 
 **Gearbox**
 
-- [Camilla - CAMbio Intrinsicamente LAborioso](gearbox/camilla.md)
+- [Camilla](gearbox/camilla.md)
 
 **dumBMS**
 

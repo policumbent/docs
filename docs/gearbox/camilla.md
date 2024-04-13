@@ -2,15 +2,14 @@
 
 Camilla is the software for Policumbent's prototypes' translating gearbox.
 
-## Introduction
-
 ## Functioning modes
 
-This software has three modes and a non-default mode:
+This software has three gearbox modes, a menu mode and a calibration mode:
 - [Gears Mode](#gears-mode)
 - [While-Pressed Mode](#while-pressed-mode)
 - [Nevada Mode](#nevada-mode)
-- [Disabled Default Mode](#disabled-default-mode)
+- [Menu Mode](#menu-mode)
+- [Calibration Mode](#calibration-mode)
 
 ### Gears Mode
 
@@ -56,7 +55,7 @@ a kind of While-Pressed Mode, where the driver can manually adjust the position.
 The manual-added offset, then, will be added for each shift as overshoot (or
 undershoot).
 
-### Disabled Default Mode
+### Menu Mode
 
 ```C++
 // settings.h
@@ -66,5 +65,15 @@ undershoot).
 ```
 
 In this mode, you can select one of the three previous mode at startup. You can
-also reach this mode, from every other mode, by holding down the calibration
+also access this mode, from every other mode, by holding down the calibration
 button.
+
+Here you can select:
+- **Gears Mode** by pressing shift-up (depending on the `NEVADA_MODE` flag it
+will use the Nevada Mode or the normal Gears Mode)
+- **While Pressed Mode** by pressing shift-down
+- **Calibration Mode** by pressing the calibration button
+
+### Calibration Mode
+
+This mode lets you calibrate each gear position of the gearbox.
