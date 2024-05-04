@@ -5,6 +5,7 @@
 **Gearbox**
 
 - [Camilla](gearbox/camilla.md)
+- [Telekhambion](gearbox/telekhambion.md)
 
 **dumBMS**
 
