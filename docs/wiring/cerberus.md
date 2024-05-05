@@ -6,4 +6,4 @@ _Last update: 05/05/2024_
 
 ![Cerberus general wiring](assets/cerberus_general.png)
 
-A more detailed diagram [here](/docs/wiring/assets/cerberus_general.html "Cerberus wiring diagram")
+Click here for a full size image [here](/wiring/assets/cerberus_general.png)
