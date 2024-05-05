@@ -13,6 +13,8 @@
 
 **Wiring**
 
+- [Cerberus](wiring/cerberus.md)
+
 **Debug tools**
 
 - [Raspberry Pi](debug-tools/raspberry_pi.md "Raspberry Pi")
