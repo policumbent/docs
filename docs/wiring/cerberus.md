@@ -6,4 +6,4 @@ _Last update: 05/05/2024_
 
 ![Cerberus general wiring](assets/cerberus_general.png)
 
-Click here for a full size image [here](/docs/wiring/assets/cerberus_general.png)
+For a better viewing of the image, try to open it in a new tab.
