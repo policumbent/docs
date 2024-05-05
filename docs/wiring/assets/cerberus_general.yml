@@ -1,0 +1,82 @@
+connectors:
+    RPi_CAN: &conn_can_template
+        pinlabels: [GND, CAN_H, CAN_L, GND, CAN_H, CAN_L]
+        type: Molex Nano Fit
+        subtype: male
+    FRAME_CONN:
+        pinlabels: [GND, CAN_H, CAN_L]
+        type: JST SM
+    DumBMS_CAN:
+        <<: *conn_can_template
+    DumBMS_PWR1: &conn_pwr_template
+        pinlabels: [GND, VBAT]
+        type: Molex Nano Fit
+        subtype: male
+    DumBMS_PWR2:
+        <<: *conn_pwr_template
+    Omero_PWR:
+        <<: *conn_pwr_template
+    Omero_CAN:
+        <<: *conn_can_template
+    Greta_PWR:
+        <<: *conn_pwr_template
+    Greta_CAN:
+        <<: *conn_can_template
+    Teseo_PWR:
+        <<: *conn_pwr_template
+    Teseo_CAN:
+        <<: *conn_can_template
+
+cables:
+    CAN-BUS_RPi-FRAME: &cab_can_template
+        gauge: 22 AWG
+        colors: [BK, YE, BU]
+    CAN-BUS_FRAME-DumBMS:
+        <<: *cab_can_template
+    CAN-BUS_DumBMS-Omero:
+        <<: *cab_can_template
+    CAN-BUS_Omero-Greta:
+        <<: *cab_can_template
+    CAN-BUS_Greta-Teseo:
+        <<: *cab_can_template
+    PWR_Omero: &cab_pwr_template
+        gauge: 22 AWG
+        colors: [BK, RD]
+    PWR_Greta:
+        <<: *cab_pwr_template
+    PWR_Teseo:
+        <<: *cab_pwr_template
+
+connections:
+    - 
+        - RPi_CAN: [1-3]
+        - CAN-BUS_RPi-FRAME: [1-3]
+        - FRAME_CONN: [1-3]
+    -
+        - DumBMS_CAN: [1-3]
+        - CAN-BUS_FRAME-DumBMS: [1-3]
+        - FRAME_CONN: [1-3]
+    -
+        - DumBMS_CAN: [4-6]
+        - CAN-BUS_DumBMS-Omero: [1-3]
+        - Omero_CAN: [1-3]
+    -
+        - Greta_CAN: [1-3]
+        - CAN-BUS_Omero-Greta: [1-3]
+        - Omero_CAN: [4-6]
+    -
+        - Greta_CAN: [4-6]
+        - CAN-BUS_Greta-Teseo: [1-3]
+        - Teseo_CAN: [1-3]
+    -
+        - DumBMS_PWR1: [1-2]
+        - PWR_Omero: [1-2]
+        - Omero_PWR: [1-2]
+    -
+        - Omero_PWR: [1-2]
+        - PWR_Greta: [1-2]
+        - Greta_PWR: [1-2]
+    -
+        - DumBMS_PWR2: [1-2]
+        - PWR_Teseo: [1-2]
+        - Teseo_PWR: [1-2]
