@@ -10,6 +10,6 @@ For a better viewing of the image, try to open it in a new tab.
 
 ## Gearbox wiring
 
-![Cerberus gearbox wiring](assets/cerberus_general.png)
+![Cerberus gearbox wiring](assets/cerberus_gearbox.png)
 
 For a better viewing of the image, try to open it in a new tab.
