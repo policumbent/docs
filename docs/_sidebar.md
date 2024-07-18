@@ -19,6 +19,10 @@
 
 - [Raspberry Pi](debug-tools/raspberry_pi.md "Raspberry Pi")
 
+**Telemetry**
+
+- [Victoria](telemetry/victoria.md "Victoria")
+
 **Legacy**
 
 - [Software](legacy/software/software.md)
