@@ -28,11 +28,11 @@ Or, if you have a monitor and a keyboard:
 
 Install Bob
 - Copy Bob
-  - Install git
+  - Install git, vim, python3-dev
     ```
     sudo apt update
     sudo apt upgrade
-    sudo apt install git vim
+    sudo apt install git vim python3-dev
     git --version
     ```
   - Clone Bob into `/home/pi/` (`~` folder) with HTTPS
@@ -133,6 +133,24 @@ it by uncommenting the following line
   ```
   #hdmi_force_hotplug=1
   ```
+
+#### Create `venv`
+
+Go into `/home/pi/ffs/modules/video`, then run:
+```bash
+python -m venv ./venv --system-site-packages
+source ./venv/bin/activate
+pip install -r requirements.txt
+deactivate
+```
+
+Then go to `/home/pi/ffs/modules/can`, then, similarly, run:
+```bash
+python -m venv ./venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+deactivate
+```
 
 #### Setup FFS/Bob services
 
