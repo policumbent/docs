@@ -114,6 +114,8 @@ Setup CAN ([reference link](https://github.com/policumbent/poliCANbent/tree/main
 - Reboot the system
 - Run `ifconfig` and check that `can0` is present as network interface
 
+For a deeper troubleshooting, please check the [poliCANbent repository](https://github.com/policumbent/poliCANbent/tree/main/rpi-can-config)
+
 #### Video setup
 
 Setup PiCamera2 and video
