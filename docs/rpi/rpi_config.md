@@ -84,6 +84,14 @@ Setup ANT
   ```
 - Restart `udev` (or simply reboot the system) and reconnect the USB device
 
+Then, in order to create the virtual environment of the module run the following
+commands:
+```bash
+cd ~/bob/modules/ant
+poetry lock
+poetry install
+```
+
 ## FFS installation
 
 - Clone Bob into `/home/pi/` (`~` folder) with HTTPS
