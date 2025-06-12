@@ -136,6 +136,17 @@ it by uncommenting the following line
   #hdmi_force_hotplug=1
   ```
 
+- If the Raspberry still does not output any HDMI (when the screen is booted
+after the Raspberry), in `/boot/firmware/config.txt` change the following line:
+  ```bash
+  dtoverlay=vc4-kms-v3d
+  ```
+  into:
+  ```bash
+  dtoverlay=vc4-fkms-v3d
+  ```
+  this will restore the legacy video driver and hotplug will work
+
 #### Create `venv`
 
 Go into `/home/pi/ffs/modules/video`, then run:
