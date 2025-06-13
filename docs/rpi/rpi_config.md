@@ -105,19 +105,20 @@ poetry install
 
 Setup CAN ([reference link](https://github.com/policumbent/poliCANbent/tree/main/rpi-can-config))
 - Clone `poliCANbent` repository with HTTPS
-  ```
+  ```bash
   git clone https://github.com/policumbent/poliCANbent.git
   ```
 - Go into `/poliCANbent/rpi-can-config/` and run the setup script
-  ```
+  ```bash
   chmod +x setup.sh
   ./setup.sh
   ```
 - If the `cat` and append does not work, use `vim` and do copy and paste (for command number 2 and number 4 in `setup.sh`)
 - It's possible to cancel the `poliCANbent` folder
 - Since `can_logger.sh` is called from a Python program, run the following command to give it the permissions to do it
-  ```
-  chmod +x ~/bob/modules/can/can_logger.sh
+  ```bash
+  chmod +x ~/ffs/modules/can/can_logger.sh
+  chmod +x ~/ffs/modules/can/can_reconnect.sh
   ```
 - Reboot the system
 - Run `ifconfig` and check that `can0` is present as network interface
@@ -128,12 +129,12 @@ For a deeper troubleshooting, please check the [poliCANbent repository](https://
 
 Setup PiCamera2 and video
 - Install libcamera and picamera2
-  ```
+  ```bash
   sudo apt install -y python3-libcamera
   sudo apt install -y python3-picamera2 --no-install-recommends
   ```
 - Run the following command to avoid `ImportError: libopenjp2.so.7: cannot open shared object file`
-  ```
+  ```bash
   sudo apt-get install libopenjp2-7
   ```
 - Reboot
@@ -176,34 +177,34 @@ deactivate
 #### Setup FFS/Bob services
 
 - Go into `/home/pi/bob/modules`, then go in each module folder and copy the `.service` file into `/etc/systemd/system/`
-  ```
+  ```bash
   sudo cp <module>.service /etc/systemd/system/
   ```
 - Change mode and enable each service
-  ```
+  ```bash
   sudo systemctl daemon-reload
   sudo systemctl enable <module>.service
   ```
 - Reboot the system
 - To see the status of the service, use the following command
-  ```
+  ```bash
   sudo systemctl status <module>.service
   ```
 
 #### Troubleshooting
 - To check why a module is failing, run manually the service by seeing the command specified in the `ExecStart` field of the `<module>.service` file contained inside `/home/pi/bob/modules/<module>/`, in general the command should be one of the following two
   1. For Poetry modules (all except video and CAN)
-    ```
+    ```bash
     /home/pi/bob/modules/<module>/.venv/bin/python3 -m src.main
     ```
   2. For non Poetry modules (video and CAN)
-    ```
+    ```bash
     cd /home/pi/bob/modules/<module>
     /usr/bin/python3 -m src.main
     ```
   - Video module
     - If you get a `numpy` error try to do
-      ```
+      ```bash
       sudo apt-get install libatlas-base-dev
       pip3 uninstall numpy
       sudo apt install python3-numpy
