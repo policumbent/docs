@@ -176,7 +176,7 @@ deactivate
 
 #### Setup FFS/Bob services
 
--To set up the services, navigate to /home/pi/bob/modules for the ANT+ service and /home/pi/ffs/modules for the CAN and video services. From there, enter each module's folder and copy the respective .service files into /etc/systemd/system/.
+- To set up the services, navigate to /home/pi/bob/modules for the ANT+ service and /home/pi/ffs/modules for the CAN and video services. From there, enter each module's folder and copy the respective .service files into /etc/systemd/system/.
   ```bash
   sudo cp <module>.service /etc/systemd/system/
   ```
@@ -216,9 +216,9 @@ deactivate
       mkdir csv
       ```
   - CAN module
-   - If the CAN module crashes on startup and your logs show a <frozen runpy> traceback (specifically an AttributeError related to typing.ParamSpec), this is caused by a library that is incompatible with Python 3.13.
-   - To fix this, you must upgrade the typing_extensions package inside the module's virtual environment. Run the following command:
-      ```
+    - If the CAN module crashes on startup and your logs show a <frozen runpy> traceback (specifically an AttributeError related to typing.ParamSpec), this is caused by a library that is incompatible with Python 3.13.
+    - To fix this, you must upgrade the typing_extensions package inside the module's virtual environment. Run the following command:
+      ```bash
       /home/pi/ffs/modules/can/venv/bin/pip install --upgrade typing_extensions
       ```
       
