@@ -176,7 +176,7 @@ deactivate
 
 #### Setup FFS/Bob services
 
-- Go into `/home/pi/bob/modules`, then go in each module folder and copy the `.service` file into `/etc/systemd/system/`
+-To set up the services, navigate to /home/pi/bob/modules for the ANT+ service and /home/pi/ffs/modules for the CAN and video services. From there, enter each module's folder and copy the respective .service files into /etc/systemd/system/.
   ```bash
   sudo cp <module>.service /etc/systemd/system/
   ```
@@ -199,8 +199,8 @@ deactivate
     ```
   2. For non Poetry modules (video and CAN)
     ```bash
-    cd /home/pi/bob/modules/<module>
-    /usr/bin/python3 -m src.main
+    cd /home/pi/ffs/modules/<module>
+    ./venv/bin/python -m src.main
     ```
   - Video module
     - If you get a `numpy` error try to do
@@ -215,4 +215,11 @@ deactivate
       cd ~/bob/
       mkdir csv
       ```
+  - CAN module
+   - If the CAN module crashes on startup and your logs show a <frozen runpy> traceback (specifically an AttributeError related to typing.ParamSpec), this is caused by a library that is incompatible with Python 3.13.
+   - To fix this, you must upgrade the typing_extensions package inside the module's virtual environment. Run the following command:
+      ```
+      /home/pi/ffs/modules/can/venv/bin/pip install --upgrade typing_extensions
+      ```
+      
 - Remember to add the name of the bike in the database `~/bob/database.db` into the table `configuration` under the primary key `global` writing inside the json file at the key `name` (for simplicity use [DB Browser for SQL Lite](https://sqlitebrowser.org/), s.t. you can see and modify the database without the need to make SQL queries)
